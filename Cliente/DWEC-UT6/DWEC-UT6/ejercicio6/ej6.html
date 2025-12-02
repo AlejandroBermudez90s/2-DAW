@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 6</title>
+        <link rel="stylesheet" href="ej6.css">
+    </head>
+    <body>
+        <h2>Generador de animaciones</h2>
+        <div id="panel">
+            Número objetos (0-10):
+            <input type="number" id="numObj" value="3" min="0" max="10"><br>
+
+            Inc Velocidad X:
+            <input type="number" id="velX" value="3" min="0" max="10"><br>
+
+            Elige un objeto:
+            <select id="tipo">
+                <option value="cuadrado">Cuadrado</option>
+                <option value="circulo">Círculo</option>
+                <option value="imagen">Imagen</option>
+            </select><br><br>
+
+            <button id="lanzar">Lanzar animación</button>
+            <button id="parar" disabled>Parar animación</button>
+        </div>
+
+        <br>
+
+        <canvas id="miCanvas" width="600" height="300"></canvas>
+
+        <script src="ej6.js"></script>
+
+    </body>
+
+</html>

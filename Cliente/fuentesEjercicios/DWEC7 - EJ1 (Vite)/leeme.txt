@@ -1,0 +1,4 @@
+index.html se coloca en ...../ sustituyendo al que hay
+main.jsx se coloca en ...../src sustituyendo al que hay
+index.css se coloca en ...../src sustituyendo al que hay
+comentar import App de main.jsx

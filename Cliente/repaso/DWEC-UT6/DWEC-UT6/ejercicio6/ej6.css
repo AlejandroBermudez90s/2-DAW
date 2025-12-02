@@ -1,0 +1,23 @@
+body {
+            font-family: Arial;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+
+        #panel {
+            background: #444;
+            padding: 10px;
+        }
+
+        #miCanvas {
+            background: #e9d362;
+            display: block;
+            margin: auto;
+            border: 2px solid black;
+        }
+
+        select,
+        input {
+            margin: 4px;
+        }
