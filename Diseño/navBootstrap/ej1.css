@@ -1,0 +1,24 @@
+.row, .col-12{
+    padding: 0 ;
+    margin: 0;
+}
+
+.bg-light{
+    background-color: aquamarine !important;
+}
+
+.navbar-brand{
+    color: mediumpurple !important;
+}
+
+a.nav-link{
+    color: blueviolet !important;
+}
+
+.navbar-toggler{
+    color: blueviolet !important;
+}
+
+.foto {
+    width: 80%;
+}

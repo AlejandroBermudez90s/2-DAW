@@ -1,0 +1,19 @@
+@function color-aleatorio($opcion: null, $opacidad: null){
+    
+    @if (not($opacidad)){
+        $opacidad: 1;
+    }
+    @if ($opcion == "rojo"){
+        @return rgb(random(256) - 1, 0, 0, $opacidad);
+    }
+    @else if ($opcion == "verde"){
+        @return rgb(0, random(256) - 1, 0, $opacidad);
+    }
+    @else if ($opcion == "azul"){
+        @return rgb(0, 0, random(256) - 1, $opacidad);
+    }
+    @return rgb(random(256) - 1, random(256) - 1, random(256) - 1, $opacidad);
+
+}
+
+

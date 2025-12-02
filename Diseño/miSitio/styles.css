@@ -1,0 +1,16 @@
+.borde{
+    border: 1px white solid;
+}
+
+.header{
+    min-height: 150px;
+    background-color: cadetblue;
+    text-align: center;
+    align-content: center;
+}
+
+#titulo{
+    font-size: 2em;
+    color: aliceblue;
+    font-weight: bolder;
+}

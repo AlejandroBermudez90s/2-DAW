@@ -1,0 +1,29 @@
+$color-base: #f3f9d2;
+$color-texto: #b31919;
+$color-contraste: #8d8dc7;
+$color-texto-claro: rgba($color-texto, 0.5);
+
+.fondo{
+    background-color: $color-base;
+}
+
+nav{
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li{
+            display: inline-block;
+            a{
+                display: block;
+                padding: 6px 12px;
+                text-decoration: none;
+                color: $color-texto;
+                border: 1px solid $color-contraste;
+                &:hover{
+                    background-color: $color-texto-claro;
+                }
+            }
+        }
+    }
+}
