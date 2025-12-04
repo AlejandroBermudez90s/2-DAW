@@ -30,3 +30,25 @@ edad_usuario = 25
 
 # Ejemplo de error: 'class' es una palabra reservada
 # class = 5  # SyntaxError
+## Reglas de estilo
+
+Aunque no es obligatorio, es conveniente seguir unas **reglas de estilo** (basadas en PEP 8) para que el código sea más legible y consistente:
+
+* El nombre elegido debe ser **corto** pero **descriptivo**.
+* Variables en **minúsculas con guiones** (`snake_case`): para uso habitual.
+* Variables en **mayúsculas con guiones**: para constantes.
+* Variables en **minúsculas sin guiones** (**UpperCamelCase**): para nombres de clases.
+* Variables en **minúsculas que empiezan por guión**: variables privadas de uso interno (por ejemplo dentro de una clase o módulo).
+
+```python
+# Variables de uso habitual (snake_case)
+nombre_usuario = "Ana"      # ok, nombre de variables descriptivo
+n_u = "Bob"                 # regular, nombre poco descriptivo
+edad = 25
+
+# Variables para constantes (UPPER_CASE_SNAKE)
+PI = 3.14159
+MAX_INTENTOS = 5
+
+# Variables privadas (empezando por guion bajo)
+_contador = 0
