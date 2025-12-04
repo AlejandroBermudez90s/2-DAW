@@ -36,7 +36,7 @@ print(0/0)
 ### Excepciones lanzadas por el programador
 * El programador puede utilizar `raise` para **lanzar** una excepción en determinadas situaciones.
 * La excepción podrá ser **capturada** en llamadas superiores o tratada por el intérprete como error si no se captura.
-* Lo normal es utilizar una de las ![excepciones incorporadas](https://docs.python.org/3.14/library/exceptions.html) si el error encaja en alguna de ellas o crear una excepción personalizada en caso contrario.
+* Lo normal es utilizar una de las excepciones incorporadas(https://docs.python.org/3.14/library/exceptions.html) si el error encaja en alguna de ellas o crear una excepción personalizada en caso contrario.
 ```pyhton
 num = int(input("Introduce un número entre 1 y 10: "))
 if not (1 <= num <= 10):
