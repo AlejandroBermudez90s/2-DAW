@@ -52,6 +52,6 @@ print(nums_double)
 # [10, 20, 30, 40, 50, 60]
 ```
 ### Indexación de elementos
-* Igual que en listas -> [listas.md](listas.md)
+* Igual que en listas -> [listas.md](Listas.md)
 ### Extracción de elementos
-* Igual que en listas -> [listas.md](listas.md), ya que no se modifica la colección se crea una nueva tupla con los elementos extraídos.
+* Igual que en listas -> [listas.md](Listas.md), ya que no se modifica la colección se crea una nueva tupla con los elementos extraídos.
