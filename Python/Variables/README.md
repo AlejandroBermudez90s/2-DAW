@@ -1,4 +1,4 @@
-# 🐍 Conceptos Fundamentales de Python: Variables, I/O y Tipado
+# 🐍 Conceptos Fundamentales de Python: Variables
 
 ---
 
