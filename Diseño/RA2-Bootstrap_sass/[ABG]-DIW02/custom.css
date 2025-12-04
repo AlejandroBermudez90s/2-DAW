@@ -1,0 +1,320 @@
+.body {
+    /*background-image: url("imagenes/arena.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    */
+    height: 100%;
+    background-color: rgb(238, 229, 229);
+}
+
+.container{
+    background-color: white !important;
+}
+
+.fondoSeccion{
+    background-color: rgb(253, 246, 246);
+    border-radius: 1em;
+    margin-top: 4em;
+    padding: 3em;
+}
+.col-12 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.logo {
+    width: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.navbar {
+    background-color: rgb(105, 82, 53) !important;
+    align-items: center !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.btn {
+    color: rgb(255, 255, 255) !important;
+    border-color: rgb(0, 0, 0) !important;
+}
+
+.textoNav {
+    color: white !important;
+    font-weight: 800 !important;
+}
+
+.header {
+    background-image: url("imagenes/header.jpg");
+    background-size: contain;
+    background-position: center;
+    height: 50em;
+    align-content: center;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    letter-spacing: 1em;
+}
+
+.carrusel {
+    margin-top: 0.5em !important;
+}
+
+.alturaCarrusel {
+    height: 30em !important;
+    object-fit: cover;
+}
+
+.descripcionImagenes {
+    font-style: italic;
+}
+
+.tituloSeccion1 {
+    color: rgb(138, 71, 13);
+    font-weight: 800;
+    text-align: center;
+}
+
+.tituloSeccion2 {
+    color: rgb(0, 8, 54);
+    font-weight: 800;
+    text-align: center;
+}
+.imagenSeccion {
+    width: 20em;
+    height: 20em;
+    object-fit: cover;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    max-width: 100%;
+}
+
+.parrafo1 {
+    color:rgb(82, 52, 25);
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    text-align: justify;
+}
+
+.parrafo2 {
+    color:rgb(4, 2, 43);
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    text-align: justify;
+}
+
+.separador{
+    min-height: 40px;
+    background-color: blue;
+}
+
+.escudos{
+    width: 6em;
+}
+
+.boton{
+    margin-left: 10em;
+}
+
+.comoLlegar {
+    border: none;
+    color: rgb(82, 52, 25) !important;
+    font-weight: bolder;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: rgb(218, 141, 54);
+    transition: transform 0.3s ease-in-out; 
+}
+.comoLlegar:hover {
+    background-color: rgb(187, 164, 113);
+}
+.comoLlegar:active {
+    background-color: rgb(245, 204, 115) !important;
+}
+
+.comoLlegarAzul {
+    border: none;
+    color: rgb(255, 255, 255) !important;
+    font-weight: bolder;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: rgb(15, 73, 197);
+    transition: transform 0.3s ease-in-out; 
+}
+.comoLlegarAzul:hover {
+    background-color: rgb(1, 3, 107);
+}
+.comoLlegarAzul:active {
+    background-color: rgb(56, 104, 207) !important;
+}
+
+@media screen and (min-width:0px) and (max-width:576px) {
+    .imagenSeccion {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1em;
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:700px) {
+    .tituloSeccion1 {
+        color: rgb(138, 71, 13);
+        font-weight: 800;
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        margin-top: 2em;
+    }
+    .tituloSeccion2 {
+        color: rgb(0, 8, 54);
+        font-weight: 800;
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        margin-top: 2em;
+    }
+    .parrafo1 {
+        color:rgb(82, 52, 25);
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        text-align: justify;
+    }
+
+    .parrafo2 {
+        color:rgb(4, 2, 43);
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        text-align: justify;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:992px) {
+    .titulo {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 900;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+        letter-spacing: 2em;
+    }
+    .tituloSeccion1 {
+        color: rgb(138, 71, 13);
+        font-weight: 800;
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 0.5em;
+        margin-top: 2em;
+    }
+    .tituloSeccion2 {
+        color: rgb(0, 8, 54);
+        font-weight: 800;
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 0.5em;
+        margin-top: 2em;
+    }
+    .parrafo1 {
+        color:rgb(82, 52, 25);
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        text-align: justify;
+    }
+
+    .parrafo2 {
+        color:rgb(4, 2, 43);
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        text-align: justify;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .titulo {
+        text-align: center;
+        font-size: 3em;
+        font-weight: 900;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+        letter-spacing: 2em;
+    }
+    .tituloSeccion1 {
+        color: rgb(78, 43, 12);
+        font-weight: 800;
+        text-align: center;
+        font-size: 4em;
+        margin-bottom: 0.5em;
+        margin-top: 2em;
+    }
+    .tituloSeccion2 {
+        color: rgb(0, 8, 54);
+        font-weight: 800;
+        text-align: center;
+        font-size: 4em;
+        margin-bottom: 0.5em;
+        margin-top: 2em;
+    }
+    .parrafo1 {
+        color:rgb(56, 35, 16);
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        text-align: justify;
+    }
+
+    .parrafo2 {
+        color:rgb(4, 2, 43);
+        font-size: 1em;
+        font-weight: 500;
+        padding: 1em;
+        text-align: justify;
+    }
+}
+
+.footer {
+    background-color: rgb(175, 143, 104) !important;
+    align-items: center !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    height: 20em;
+    align-content: end !important;
+    justify-items: center;
+    margin-bottom: 0px !important;
+}
+
+.escudosFooter{
+    width: 10em;
+    align-self: center;
+}
+
+.margenEscudos{
+    width: min-content;
+    justify-content: center;
+    align-self: center;
+}
+
+.escudoFooterLogo{
+    width: 2em;
+    margin-left: 4em;
+}
+
+.escudoTabla {
+    width: 1.5em;
+    margin-bottom: 1em;
+}

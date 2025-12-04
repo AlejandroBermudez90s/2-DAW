@@ -1,0 +1,22 @@
+.fondo {
+  background-color: #f3f9d2;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #b31919;
+  border: 1px solid #8d8dc7;
+}
+nav ul li a:hover {
+  background-color: rgba(179, 25, 25, 0.5);
+}/*# sourceMappingURL=style.css.map */

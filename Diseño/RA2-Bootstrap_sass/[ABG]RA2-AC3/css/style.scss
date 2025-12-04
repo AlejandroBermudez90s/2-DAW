@@ -1,0 +1,135 @@
+
+// ----------     TAMAÑOS     -------------
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+$font-family: 'Nunito', sans-serif;
+$max-width: 1400px;
+$default-margin: 0px;
+$default-padding: 0px;
+
+
+
+// ----------     COLORES     -------------
+
+$default-foreground: rgb(30, 30, 30);
+$default-background: #eee;
+$color-menu: black;
+$color-hover:red;
+
+
+
+// -----------     FUENTES     -------------
+
+$font-sizes: (
+  "cuerpo": 1rem,
+  "h3": 150%,
+  "h2": 200%,
+  "h1": 300%,
+  "nav ul li": 110%,
+  "p": 80%
+);
+
+$font-weight: (
+    "light": 300,
+    "regular": 400,
+    "bold": 700
+);
+
+
+
+// ----------     ESTILOS     -------------
+
+$cuerpo: map-get($font-weight, "regular" ) map-get($font-sizes, "cuerpo" ) $font-family;
+
+h{
+    &1{
+        font: map-get($font-weight, "bold" ) map-get($font-sizes, "h1" ) $font-family;
+    }
+    &2{
+        font: map-get($font-weight, "bold" ) map-get($font-sizes, "h2" ) $font-family;
+    }
+    &3{
+        font: map-get($font-weight, "bold" ) map-get($font-sizes, "h3" ) $font-family;
+    }
+}
+
+body{
+    font: $cuerpo;
+    color: $default-foreground;
+}
+
+html{
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+    color: $default-foreground
+}
+
+header{
+    text-align: center;
+    background-color: $default-background;
+    padding: 0.5em;
+    img{
+        width: 10%;
+        float: left;
+    }
+
+    h1,h2{
+        width: 90%;
+        margin: $default-margin;
+        padding: $default-padding;
+    }
+}
+
+nav{
+    background-color: $default-background;
+    margin: $default-margin;
+    margin-top: 0.5em;
+    padding: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    ul{
+        list-style: none;
+        margin: $default-margin;
+        li{
+            display: inline;
+            margin: $default-margin;
+            padding: 0.2em;
+            font: map-get($font-weight, "bold" ) map-get($font-sizes, "nav ul li" ) $font-family;
+            a{
+                color: $color-menu;
+                &:hover{
+                    color: $color-hover;
+                }
+            }
+        }
+    }
+}
+
+section{
+    min-height: 20em;
+}
+
+footer{
+    text-align: center;
+    div{
+        background-color: $default-background;
+        margin: 0.5em;
+        padding: 0.2em;
+        a{
+            img{
+                width: 3em
+            }
+        }
+    }
+    p{
+        background-color: $default-background;
+        margin: $default-margin;
+        padding: 0.1em;
+        font: map-get($font-weight, "light" ) map-get($font-sizes, "p" ) $font-family;
+    }
+}

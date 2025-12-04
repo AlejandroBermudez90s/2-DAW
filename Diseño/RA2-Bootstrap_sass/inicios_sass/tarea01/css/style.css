@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+h1 {
+  font: 700 300% "Nunito", sans-serif;
+}
+h2 {
+  font: 700 200% "Nunito", sans-serif;
+}
+h3 {
+  font: 700 150% "Nunito", sans-serif;
+}
+
+body {
+  font: 400 1rem "Nunito", sans-serif;
+  color: rgb(30, 30, 30);
+}
+
+html {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(30, 30, 30);
+}
+
+header {
+  text-align: center;
+  background-color: #eee;
+  padding: 0.5em;
+}
+header img {
+  width: 10%;
+  float: left;
+}
+header h1,
+header h2 {
+  width: 90%;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+header h1 {
+  color: rgb(225, 0, 0);
+}
+header h2 {
+  color: rgb(0, 9, 0);
+}
+
+nav {
+  background-color: #eee;
+  margin: 0px;
+  margin-top: 0.5em;
+  padding: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+nav ul {
+  list-style: none;
+  margin: 0px;
+}
+nav ul li {
+  margin: 0px;
+  padding: 0.2em;
+  font: 700 110% "Nunito", sans-serif;
+}
+nav ul li a {
+  color: black;
+}
+nav ul li a:hover {
+  color: red;
+}
+
+footer {
+  text-align: center;
+}
+footer div {
+  background-color: #eee;
+  margin: 0.5em;
+  padding: 0.2em;
+}
+footer div a img {
+  width: 3em;
+}
+footer p {
+  background-color: #eee;
+  margin: 0px;
+  padding: 0.1em;
+  font: 300 80% "Nunito", sans-serif;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto auto;
+}
+section article a {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+}
+
+article:nth-child(1) {
+  background-color: rgba(66, 20, 200, 0.3);
+}
+
+article:nth-child(2) {
+  background-color: rgba(27, 40, 19, 0.3);
+}
+
+article:nth-child(3) {
+  background-color: rgba(129, 188, 165, 0.3);
+}
+
+article:nth-child(4) {
+  background-color: rgba(93, 11, 177, 0.3);
+}
+
+article:nth-child(5) {
+  background-color: rgba(60, 4, 16, 0.3);
+}
+
+article:nth-child(6) {
+  background-color: rgba(29, 155, 10, 0.3);
+}
+
+@media screen and (min-width: 576px) and (max-width: 900px) {
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  header h1 {
+    font-size: 2em;
+  }
+  header h2 {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}/*# sourceMappingURL=style.css.map */

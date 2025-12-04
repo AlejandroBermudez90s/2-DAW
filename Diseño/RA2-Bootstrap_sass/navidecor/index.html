@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Navidecor - Inicio</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="titulo">
+                <h1>NAVIDECOR</h1>
+            </div>
+            <div class="logo">
+                <img class="img-logo" src="logobuhonavidad.png" alt="Logo del sitio" />
+            </div>
+        </header>
+        <nav>
+            <button id="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul id="menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">¿Dónde estamos?</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <main class="contenido">
+            <div class="img-section">
+                <img class="imagen-contenido" src="navidad.jpg" alt="Imagen de ejemplo" />
+            </div>
+            <div class="texto">
+                <h2>Título de sección</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Nulla efficitur, urna sed blanditconvallis, lectus libero feugiat eros, nec varius
+                    elit magna sed odio.
+                </p>
+            </div>
+            <div class="img-section">
+                <img class="imagen-contenido" src="navidad.jpg" alt="Imagen de ejemplo" />
+            </div>
+            <div class="texto">
+                <h2>Título de sección</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Nulla efficitur, urna sed blanditconvallis, lectus libero feugiat eros, nec varius
+                    elit magna sed odio.
+                </p>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Navidecor 2025</p>
+        </footer>
+    </div>
+    <script>
+        const toggleButton = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        toggleButton.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+    </script>
+</body>
+
+</html>
