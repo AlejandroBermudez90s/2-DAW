@@ -55,3 +55,66 @@ print(nums_double)
 * Igual que en listas -> [listas.md](Listas.md)
 ### Extracción de elementos
 * Igual que en listas -> [listas.md](Listas.md), ya que no se modifica la colección se crea una nueva tupla con los elementos extraídos.
+---
+## Empaquetado y desempaquetado de tuplas
+```pyhton
+point = (7, 14, 21)
+x, y, z = point
+x, y = point              # Error
+```
+```pyhton
+a = 200
+b = 400
+ 
+a, b = b, a               # a=400, b=200
+```
+```pyhton
+numbers = (1, 2, 3, 4, 5)
+ 
+*head, last = numbers                # head=[1, 2, 3, 4], last=5
+first, *middle, last = numbers       # first=1, middle=[2, 3, 4], last=5
+first, second, *tail = numbers       # first=1, second=2, tail=[3, 4, 5]
+```
+```pyhton
+name = ("John", "Doe")
+contact = ("john@example.com", "55-555-5555")
+ 
+(*name, *contact)
+# ('John', 'Doe', 'john@example.com', '55-555-5555')
+```
+---
+## Copia o duplicado de tuplas
+* Al tratarse de objetos inmutables las tuplas no necesitan ser copiadas.
+* Las técnicas de copia superficial de listas pueden utilizarse en tuplas, pero realmente no crean copias, sino enlaces a la tupla original.
+* La copia profunda de tuplas puede utilizarse al igual que en listas. Su uso tiene sentido cuando la tupla contiene elementos mutables.
+
+```pyhton
+# COPIA SUPERFICIAL 
+student_info = ("Linda", 18, ["Math", "Physics", "History"])
+student_profile = student_info[:]
+id(student_info) == id(student_profile)            # True
+id(student_info[0]) == id(student_profile[0])      # True
+id(student_info[1]) == id(student_profile[1])      # True
+id(student_info[2]) == id(student_profile[2])      # True
+```
+```pyhton
+# COPIA PROFUNDA
+From copy import deepcopy
+ 
+student_info = ("Linda", 18, ["Math", "Physics", "History"])
+student_profile = deepcopy(student_info)
+ 
+id(student_info) == id(student_profile)
+id(student_info) == id(student_profile)            # True
+id(student_info[0]) == id(student_profile[0])      # True
+id(student_info[1]) == id(student_profile[1])      # True
+id(student_info[2]) == id(student_profile[2])      # False
+```
+---
+## Reordenar tuplas
+* Igual que en listas -> [listas.md](Listas.md)
+
+
+
+
+
