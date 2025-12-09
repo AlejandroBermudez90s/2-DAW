@@ -93,7 +93,7 @@ Ahora tienes dos enlaces con los que trabajar:
   ```bash
   git remote -v
   ```
-## Gaurdar los cambios en local
+## Guardar los cambios en local
 Cada vez que hagas cualquier cambio, deberás ejecutar:
 
 * 1: Ver en qué rama estás y qué cambios hay por confirmar
