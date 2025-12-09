@@ -63,8 +63,8 @@ ssh-add ~/.ssh/id_ed25519
  ### Clona este repositorio (con SSH):
 
    ```bash
-   git clone https://github.com/AlejandroBermudez90s/2-DAW.git
-   git remote add origin https://github.com/tu_usuario/nombre_repositorio_propio.git
+   git clone git@github.com:AlejandroBermudez90s/2-DAW.git
+   git remote add origin git@github.com:AlejandroBermudez90s/2-DAW.git
    git remote -v 
    git branch -M main
    git add .
