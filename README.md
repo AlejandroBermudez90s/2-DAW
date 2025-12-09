@@ -60,11 +60,11 @@ ssh-add ~/.ssh/id_ed25519
 
   - Si se te solicita, confirma tu contraseña en GitHub. Para más información, consulta Modo sudo.
 
- ### Clona este repositorio:
+ ### Clona este repositorio (con SSH):
 
    ```bash
-   git clone https://github.com/AlejandroBermudez90s/2-DAW.git    #usar enlace SSH
-   git remote add origin https://github.com/AlejandroBermudez90s/2-DAW.git
+   git clone https://github.com/AlejandroBermudez90s/2-DAW.git
+   git remote add origin https://github.com/tu_usuario/nombre_repositorio_propio.git
    git remote -v
    git branch -M main
    git add .
