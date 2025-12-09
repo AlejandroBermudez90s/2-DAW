@@ -1,17 +1,17 @@
 ![Logo CIFP Carlos III](./assets/logoC3.png)
-# Proyecto 2º DAW - [Alejandro Bermúdez]
+# Proyecto 2º DAW - Alejandro Bermúdez
 
-Este repositorio contiene el contenido realizado en el marco del curso de 2º de Desarrollo de Aplicaciones Web (DAW). El objetivo principal de este proyecto es [hacer un seguimiento de todo el curso, guardando todos los contenidos principales].
+Este repositorio contiene el contenido realizado en el marco del curso de 2º de Desarrollo de Aplicaciones Web (DAW). El objetivo principal de este proyecto es hacer un seguimiento de todo el curso, guardando todos los contenidos principales.
 
 ## Descripción
 Aquí verás los contenidos más relevantes, con instrucciones y ejemplos explciativos.
 
 ## Tecnologías utilizadas
 
-- **Frontend**: [React + Vite]
-- **Backend**: [Laravel, Blade]
-- **Base de datos**: [mariadb, mysql]
-- **Otros**: [apache2, nginx]
+- **Frontend**: React + Vite
+- **Backend**: Laravel, Blade
+- **Base de datos**: mariadb, mysql
+- **Otros**: apache2, nginx
 
 ## Instalación
 
