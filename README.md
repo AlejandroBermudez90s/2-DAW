@@ -33,7 +33,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 Cuando se te pida, escriba una contraseña segura.
 
-*2 : Inicia el agente SSH en segundo plano.
+* 2 : Inicia el agente SSH en segundo plano.
 ```bash
 $ eval "$(ssh-agent -s)"
 ```
@@ -43,7 +43,7 @@ $ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-* 4: Agrega la clave pública de SSH a tu cuenta en GitHub. Para más información, consulta [Agregar una clave SSH nueva a tu cuenta de GitHub]().
+* 4: Agrega la clave pública de SSH a tu cuenta en GitHub.
   - En la esquina superior derecha de cualquier página en GitHub, haz clic en la fotografía de perfil y luego en  Settings.
 
   - En la sección "Access" de la barra lateral, haz clic en  SSH and GPG keys.
