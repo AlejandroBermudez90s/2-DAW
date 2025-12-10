@@ -14,11 +14,22 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
+    public function run(): void
+    {
+        // User::factory(10)->create();
 
-    private function seedProyectos(){
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
 
+        self::seedProyectos();
+        $this->command->info('Tabla catálogo inicializada con datos!');
+    }
+
+    private function seedProyectos():void
+    {
         Proyecto::truncate();
-
         foreach( self::$arrayProyectos as $proyecto ) {
             $p = new Proyecto;
             $p->docente_id = $proyecto['docente_id'];
@@ -28,12 +39,6 @@ class DatabaseSeeder extends Seeder
             $p->save();
         }
     }
-
-    public function run() {
-        self::seedProyectos();
-        $this->command->info('Tabla catálogo inicializada con datos!');
-    }
-
 
     private static $arrayProyectos = [
         [
@@ -137,5 +142,4 @@ class DatabaseSeeder extends Seeder
             ]
         ],
     ];
-
 }

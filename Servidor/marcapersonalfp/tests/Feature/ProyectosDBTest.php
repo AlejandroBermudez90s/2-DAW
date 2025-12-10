@@ -67,14 +67,14 @@ class ProyectosDBTest extends TestCase
         $response = $this->get("/proyectos/show/" . $proyecto1->id);
 
         $response
-            ->assertStatus(200)
-            ->assertViewIs('proyectos.show')
-            ->assertSeeText('Proyecto aprobado', $escaped = true);
+        ->assertStatus(200)
+        ->assertViewIs('proyectos.show')
+        ->assertSeeText('Proyecto aprobado', $escaped = true);
 
         $response = $this->get("/proyectos/show/" . $proyecto2->id);
 
         $response
-            ->assertSeeText('Proyecto suspenso', $escaped = true);
+        ->assertSeeText('Proyecto suspenso', $escaped = true);
 
         $response = $this->get("/proyectos/show/A");
         $response->assertNotFound();
@@ -87,9 +87,9 @@ class ProyectosDBTest extends TestCase
         $response = $this->get('/proyectos/create');
 
         $response
-            ->assertStatus(200)
-            ->assertViewIs('proyectos.create')
-            ->assertSeeText($value, $escaped = true);
+        ->assertStatus(200)
+        ->assertViewIs('proyectos.create')
+        ->assertSeeText($value, $escaped = true);
 
         /**
          * proyectos edit test.
@@ -98,8 +98,8 @@ class ProyectosDBTest extends TestCase
         $response = $this->get("/proyectos/edit/" . $proyecto1->id);
 
         $response
-            ->assertStatus(200)
-            ->assertViewIs('proyectos.edit');
+        ->assertStatus(200)
+        ->assertViewIs('proyectos.edit');
 
         $response = $this->get("/proyectos/edit/A");
         $response->assertNotFound();
@@ -118,5 +118,6 @@ class ProyectosDBTest extends TestCase
         $this->assertDatabaseMissing('proyectos', [
             'dominio' => 'dominio1prueba',
         ]);
+
     }
 }

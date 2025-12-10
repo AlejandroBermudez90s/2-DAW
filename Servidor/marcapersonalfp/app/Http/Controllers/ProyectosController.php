@@ -9,15 +9,15 @@ class ProyectosController extends Controller
 {
     public function getIndex()
     {
-        $proyectos = Proyecto::all();
-        return view('proyectos.index', compact('proyectos'));
+        return view('proyectos.index')
+            ->with('proyectos', Proyecto::all());
     }
 
     public function getShow($id)
     {
-        $proyecto = Proyecto::findOrFail($id);
-        $proyecto->metadatos = unserialize($proyecto->metadatos);
-        return view('proyectos.show', compact('proyecto'));
+        return view('proyectos.show')
+            ->with('proyecto', Proyecto::findOrFail($id))
+            ->with('id', $id);
     }
 
     public function getCreate()
@@ -27,7 +27,9 @@ class ProyectosController extends Controller
 
     public function getEdit($id)
     {
-        $proyecto = Proyecto::findOrFail($id);
-        return view('proyectos.edit', compact('proyecto'));
+        return view('proyectos.edit')
+            ->with('proyecto', Proyecto::findOrFail($id))
+            ->with('id', $id);
     }
+
 }

@@ -9,25 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-
-    /*
-
-    Campo	        Tipo	            nullable
-    docente_id	unsignedBigInteger	    sí
-    nombre	string(120)	                no
-    dominio	string(30)	                sí
-    metadatos	text	                sí
-
-    */
     public function up(): void
     {
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('docente_id')->nullable();
+            $table->string('nombre',120);
+            $table->string('dominio',30)->nullable();
+            $table->text('metadatos')->nullable();
             $table->timestamps();
-            $table -> unsignedBigInteger('docente_id') -> nullable();
-            $table -> string('nombre', 120);
-            $table -> string('dominio', 30) -> nullable();
-            $table -> text('metadatos') -> nullable();
         });
     }
 
