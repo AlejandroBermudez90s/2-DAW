@@ -60,12 +60,12 @@ ssh-add ~/.ssh/id_ed25519
 
   - Si se te solicita, confirma tu contraseña en GitHub. Para más información, consulta Modo sudo.
 
- ### Clona este repositorio:
+ ### Clona este repositorio (con SSH):
 
    ```bash
-   git clone https://github.com/AlejandroBermudez90s/2-DAW.git    #usar enlace SSH
-   git remote add origin https://github.com/AlejandroBermudez90s/2-DAW.git
-   git remote -v
+   git clone git@github.com:AlejandroBermudez90s/2-DAW.git
+   git remote add origin git@github.com:AlejandroBermudez90s/2-DAW.git
+   git remote -v 
    git branch -M main
    git add .
    git commit -m "Inicialización del proyecto"
@@ -79,3 +79,78 @@ Configura la información de usuario de Git:
 git config --global user.email "your_email@example.com"
 git config --global user.name "Your Name"
 ```
+
+## Actualiza tu repostorio propio (**local**) con la rama main de este (**remoto**).
+- Cada día, actualiza tu propio repositorio para tenerlo a la par que este proyecto.
+- Para ello,  neceistas tener un enlace que apunte al remoto, lo llamaremos `upstream`:
+```bash
+git remote add upstream https://github.com/AlejandroBermudez90s/2-DAW.git
+```
+Ahora tienes dos enlaces con los que trabajar:
+- **origin**: Este enlace apunta a tu repositorio `local`,  aquí desarrollarás tu propio proyecto/trabajo
+- **upstream**: Este enlace apunta a este repositorio, es decir, al `remoto`. Este lo usarás para actualizar el tuyo propio
+- Para ver los enlaces que tenemos disponibles:
+  ```bash
+  git remote -v
+  ```
+## Guardar los cambios en local
+Cada vez que hagas cualquier cambio, deberás ejecutar:
+
+* 1: Ver en qué rama estás y qué cambios hay por confirmar
+```bash
+git status
+```
+* 2: Añadir a seguimiento los cambios
+  - Para añadirlo todo
+```bash
+git add .
+```
+  - Para añadir ficheros específicos 
+```bash
+git add <fichero>
+```
+* 3: Confirmar los cambios
+  - Para añadirlo todo
+```bash
+git commit -m "mensaje opcional"
+```
+* 4: Subir los cambios a tu repositorio **local** -> `origin`
+```bash
+git push origin main
+```
+Esto quiere decir, hacer un **push** a `origin (local)` desde la rama `main`
+  - En caso de que hayamos creado una rama nueva para trabajar:
+    ```bash
+    git push origin nombredelarama
+    ```
+  - ### ¿Cómo trabajar con ramas?
+    Cuando creas una rama, estás trabajando en otra historia del repositorio, a partir del último cambio guardado.
+    * Crear una nuva rama:
+    ```bash
+    git switch -C nombredelarama
+    ```
+    * Ver en qué rama estás:
+    ```bash
+    git branch
+    ```
+    * Cambiar de rama:
+    ```bash
+    git switch nombredelarama
+    ```
+    * Ver todas las ramas que tienes:
+    ```bash
+    git branch -a
+    ```
+* 5: Traerte los cambios del remoto `upstream` al tuyo `local`:
+  ```bash
+  git pull upstream main
+  ```
+  Esto quiere decir, hacer un **pull** de `upstream (remoto)` a la rama `main`.
+  - Puede que alguna vez quieras probar los cambios hechos sin afectar a tu rama principal, entonces puedes crear una nueva rama, y trarte los cambios a esa rama.
+    ```bash
+    git switch -C ramadeprueba
+    ```
+    ```bash
+    git pull upstream ramadeprueba
+    ```
+  - Ahora podrás ver y probar los cambios en esa nueva rama sin tocar tu rama `main`.
