@@ -22,7 +22,7 @@ C_B="\033[34m"                                  # COLOR BLUE
 C_M="\033[35m"                                  # COLOR MAGENTA
 C_C="\033[36m"                                  # COLOR CYAN
  
-# CONFIG 
+# CONFIG  
 lines = 15                                      # MAP SIZE LINES
 columns = 50                                    # MAP SIZE COLUMNS
  
