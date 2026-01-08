@@ -1,0 +1,132 @@
+html {
+    background-color: bisque;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.opcion01 {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: solid 1px;
+}
+
+.opcion01 img:hover{
+    transform: scale(1.2, 1.2) translateX(10px) rotate(360deg);
+    transition-duration: 0.5s;
+}
+
+/* EJEMPLO 2 */
+
+.cuadrado {
+    width: 150px;
+    height: 150px;
+    margin: 1rem 0 2rem 1rem;
+    background: blue;
+    animation-name: corre;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+}
+
+#opt01 .cuadrado {
+    transition: background 2s, width 1s, height 3s ease;
+}
+
+#opt01 .cuadrado:hover {
+    background-color: red;
+    width: 160px;
+    height: 160px;
+}
+
+@keyframes corre {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(1000px);
+    }
+}
+
+.foto {
+    animation-name: entrada;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes entrada {
+    from {
+        transform: translate(-0px, -40px);
+        opacity: 0%;
+    }
+    to {
+        transform: translate(0,40);
+        opacity: 100%;
+    }
+}
+
+
+@keyframes entradaTexto {
+    from {
+        transform: translate(-0px, -40px);
+        opacity: 100%;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 100%;
+    }
+}
+
+
+.texto1 {
+    animation-name: entrada;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+}
+
+.texto2 {
+    animation-name: entradaTexto;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+}
+
+.texto3 {
+    animation-name: entradaTexto;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+}
+
+.texto4 {
+    animation-name: entradaTexto;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.texto5 {
+    animation-name: entradaTexto;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.texto6 {
+    animation-name: entradaTexto;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.texto7 {
+    animation-name: entradaTexto;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.texto8 {
+    animation-name: entradaTexto;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.texto9 {
+    animation-name: entradaTexto;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
