@@ -38,7 +38,7 @@ html {
     height: 160px;
 }
 
-@keyframes corre {
+@keyframes desplazar {
     from {
         transform: translateX(0);
     }
@@ -67,7 +67,7 @@ html {
 
 @keyframes entradaTexto {
     from {
-        transform: translate(-0px, -40px);
+        transform: translate(-0px, -1000px);
         opacity: 100%;
     }
     to {
@@ -79,7 +79,7 @@ html {
 
 .texto1 {
     animation-name: entrada;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-fill-mode: both;
 }
 
