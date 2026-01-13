@@ -7,59 +7,55 @@ use Illuminate\Http\Request;
 
 class FamiliasProfesionalesController extends Controller
 {
-
-
     public function getIndex()
     {
-        $familias_profesionales = FamiliaProfesional::all();
-        return view('familiasProfesionales.index')
-            ->with('familiasProfesionales', $familias_profesionales);
-    }
-
-    public function getShow($id)
-    {
-        $familias_profesionales = FamiliaProfesional::findOrFail($id);
-        return view('familiasProfesionales.show')
-            ->with('familiaProfesional', $familias_profesionales)
-            ->with('id', $id);
+        return view('familias-profesionales.index')
+            ->with('familias_profesionales', FamiliaProfesional::all());
     }
 
     public function getCreate()
     {
+        return view('familias-profesionales.create');
+    }
 
-        return view('familiasProfesionales.create');
+    public function getShow($id)
+    {
+        return view('familias-profesionales.show')
+            ->with('familia_profesional', FamiliaProfesional::findorFail($id))
+            ->with('id', $id);
     }
 
     public function getEdit($id)
     {
-        $familias_profesionales = FamiliaProfesional::findOrFail($id);
-        return view('familiasProfesionales.edit')
-            ->with('familiaProfesional',  $familias_profesionales);
+        return view('familias-profesionales.edit')
+            ->with('familia_profesional', FamiliaProfesional::findorFail($id))
+            ->with('id', $id);
     }
 
-    public function store(Request $request)
-    {
-        $familiaProfesional  = new FamiliaProfesional();
-        $familiaProfesional ->codigo = $request->input('codigo');
-        $familiaProfesional ->nombre = $request->input('nombre');
-        $familiaProfesional ->save();
+    public function store(Request $request){
 
-        return redirect()->route('familias.show', ['id' => $familiaProfesional->id]);
+        $familia_profesional = new FamiliaProfesional();
+        $familia_profesional->nombre = $request->nombre;
+        $familia_profesional->codigo = $request->codigo;
+        $familia_profesional->save();
+
+        return redirect()->action([FamiliasProfesionalesController::class, 'getShow'], ['id'=> $familia_profesional->id]);
     }
 
-    public function update(Request $request, $id)
-    {
-        $familiaProfesional  = FamiliaProfesional::findOrFail($id);
-        $familiaProfesional ->codigo = $request->input('codigo');
-        $familiaProfesional ->nombre = $request->input('nombre');
+    public function update(Request $request){
+        $familia_profesional = FamiliaProfesional::findorFail($request->id);
+        
+        $familia_profesional->nombre = $request->nombre;
+        $familia_profesional->codigo = $request->codigo;
 
-        if ($request->hasFile('imagen')) {
+        if($request->hasFile('imagen')){
             $path = $request->file('imagen')->store('imagenes', ['disk' => 'public']);
-            $familiaProfesional->imagen = $path;
+            $familia_profesional->imagen = $path;
         }
-
-        $familiaProfesional ->save();
-
-        return redirect()->route('familias.show', [$familiaProfesional->id]);
+        $familia_profesional->save();
+    
+        return redirect()->action([FamiliasProfesionalesController::class, 'getShow'], ['id'=> $familia_profesional->id]);
     }
-};
+
+    
+}
