@@ -17,7 +17,7 @@ function App() {
   // Esta función se envía al componente hijo como prop
   function manejarAccion(coche) {
 
-    console.log("valor componetne hijo ", coche, " lo añadimos a la lista");
+    console.log("valor componente hijo ", coche, " lo añadimos a la lista");
 
     // Añadimos el coche a la lista de coches
     setListaCoches([...listaCoches, coche]);

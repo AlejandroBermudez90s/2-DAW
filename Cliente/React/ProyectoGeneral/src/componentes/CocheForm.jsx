@@ -2,6 +2,11 @@ import { useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField'
 import '@fontsource/roboto/300.css'
 import NumberSpinner from './NumberSpinner';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+
 
 const CocheForm = (props) => {
 
@@ -45,6 +50,7 @@ const CocheForm = (props) => {
   })
 
   return (
+    
     <form id="formulario" onSubmit={manejarFormulario}>
       <p><strong>Nuevo vehículo</strong></p>
       <TextField id={COCHE.MODELO} label="Modelo" variant="outlined"
@@ -118,7 +124,7 @@ const CocheForm = (props) => {
         } /><br></br><span>{errors.npuertas?.message}</span><br></br>
 
 
-      {/*
+{/*
       <TextField id={COCHE.PUERTAS} label="Nº Puertas" variant="standard"
         {...register(COCHE.PUERTAS,
           {
@@ -137,7 +143,15 @@ const CocheForm = (props) => {
           })
         } /><br></br><span>{errors.npuertas?.message}</span><br></br>
 */}
-      <button>Añadir Coche</button>
+
+      <Stack direction="row" spacing={2} className='botones'>
+      <Button variant="outlined" startIcon={<DeleteIcon />}>
+        Borrar Coche
+      </Button>
+      <Button variant="contained" endIcon={<SendIcon />} type='submit'>
+        Añadir Coche
+      </Button>
+    </Stack>
       <br></br>{JSON.stringify(watch())}
     </form>
   )
