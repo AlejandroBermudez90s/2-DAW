@@ -1,5 +1,7 @@
-import "./style.css";
-import {Link } from "wouter";
+import "./MenuCiudades.css";
+import {Link } from "react-router-dom";
+import rm from "../../mocks/mock-rm";
+
 
 const Menu = () => {
 
