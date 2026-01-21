@@ -9,18 +9,37 @@ import Murcia from './paginas/Murcia';
 import Caravaca from './paginas/Caravaca';
 import Cartagena from './paginas/Cartagena';
 import Lorca from './paginas/Lorca';
-
 import Ciudad from './paginas/Ciudad';
+
+
+import Subir from './componentes/Ej_Tabs/Subir';
+import Ver from './componentes/Ej_Tabs/Ver';
+import Descargar from './componentes/Ej_Tabs/Descargar';
+import { useState } from 'react';
+import Acordeon from './componentes/Acordeon/Acordeon';
+import menuAcordeon from './mocks/mock-menu';
+import Fotografia from './paginas/Fotografia';
+
 
 function App() {
 
   return (
     <div>
-      <MenuCiudades></MenuCiudades>
+      {/* <MenuCiudades></MenuCiudades> */}
+
+      <Acordeon lista = {menuAcordeon}></Acordeon>
+
+      <Routes>
+        <Route path="/fotografia" element={<Fotografia></Fotografia>} />
+      </Routes>
+
+      
+      {/*
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/:ciudad" element={<Ciudad></Ciudad>} />
       </Routes>
+      */}
     </div>    
   );
 }
