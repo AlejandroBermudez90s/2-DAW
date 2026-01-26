@@ -4,9 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Curriculo;
 
 class User extends Authenticatable
 {
@@ -47,7 +47,11 @@ class User extends Authenticatable
         ];
     }
 
+<<<<<<< HEAD
+     public function curriculo(): HasOne
+=======
     public function curriculo()
+>>>>>>> b787e46d1b9ad8bc91201eecd04ed6260afc6094
     {
         return $this->hasOne(Curriculo::class);
     }

@@ -10,18 +10,14 @@ use Illuminate\Http\Request;
 class CicloController extends Controller
 {
     /**
-    * Display a listing of the resource.
-    */
-
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
         $query = Ciclo::query();
-
         if($query) {
             $query->orWhere('nombre', 'like', '%' .$request->q . '%');
         }
-
-
         return CicloResource::collection(
             $query->orderBy($request->sort ?? 'id', $request->order ?? 'asc')
             ->paginate($request->per_page));

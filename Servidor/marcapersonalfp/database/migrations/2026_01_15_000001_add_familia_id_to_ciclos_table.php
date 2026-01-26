@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ciclos', function (Blueprint $table) {
-
-            $table->unsignedBigInteger('familia_id');
-            $table->foreign('familia_id')->references('id')->on('familias_profesionales')->onDelete('cascade');
+            $table->unsignedBigInteger('familia_id')->nullable()->after('codFamilia');
+            $table->foreign('familia_id')->references('id')->on('familias_profesionales');
         });
     }
 
@@ -23,8 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('ciclos', function (Blueprint $table){
-            Schema::dropIfExists('familias_profesionales');
+        Schema::table('ciclos', function (Blueprint $table) {
+            $table->dropForeign('ciclos_familia_id_foreign');
+            $table->dropColumn('familia_id');
         });
     }
 };

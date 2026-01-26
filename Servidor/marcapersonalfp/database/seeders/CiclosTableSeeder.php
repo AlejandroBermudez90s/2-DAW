@@ -14,7 +14,7 @@ class CiclosTableSeeder extends Seeder
      */
     public function run(): void
     {
-       // DB::table('ciclos')->truncate();
+        DB::table('ciclos')->truncate();
         // $familias = FamiliasProfesionalesTableSeeder::$familias_profesionales;
         // $codigosFamilias = array_column($familias, 'codigo');
         foreach (self::$ciclos as $ciclo) {

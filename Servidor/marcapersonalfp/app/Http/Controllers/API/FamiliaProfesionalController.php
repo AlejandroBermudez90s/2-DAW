@@ -24,11 +24,7 @@ class FamiliaProfesionalController extends Controller
      */
     public function store(Request $request)
     {
-        $familiaProfesional = json_decode($request->getContent(), true);
-
-        $familiaProfesional = FamiliaProfesional::create($familiaProfesional);
-
-        return new FamiliaProfesionalResource($familiaProfesional);
+        //
     }
 
     /**
@@ -44,10 +40,7 @@ class FamiliaProfesionalController extends Controller
      */
     public function update(Request $request, FamiliaProfesional $familiaProfesional)
     {
-        $familiaProfesionalData = json_decode($request->getContent(), true);
-        $familiaProfesional->update($familiaProfesionalData);
-
-        return new FamiliaProfesionalResource($familiaProfesional);
+        //
     }
 
     /**
@@ -55,13 +48,6 @@ class FamiliaProfesionalController extends Controller
      */
     public function destroy(FamiliaProfesional $familiaProfesional)
     {
-        try {
-            $familiaProfesional->delete();
-            return response()->json(null, 204);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Error: ' . $e->getMessage()
-            ], 400);
-        }
+        //
     }
 }
