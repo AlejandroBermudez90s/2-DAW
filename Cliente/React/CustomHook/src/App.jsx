@@ -20,13 +20,22 @@ import Acordeon from './componentes/Acordeon/Acordeon';
 import menuAcordeon from './mocks/mock-menu';
 import Fotografia from './paginas/Fotografia';
 
+import ListaPost from './componentes/ListaPosts/ListaPost';
+import Loader from './componentes/Loader/Loader';
 
 function App() {
 
   return (
     <div>
-      {/* <MenuCiudades></MenuCiudades> */}
+      <ListaPost></ListaPost>
+    </div>    
+  );
+}
 
+export default App;
+
+      {/* <MenuCiudades></MenuCiudades> */}
+      {/*
       <Acordeon lista = {menuAcordeon}></Acordeon>
 
       <Routes>
@@ -40,12 +49,7 @@ function App() {
         <Route path="/:ciudad" element={<Ciudad></Ciudad>} />
       </Routes>
       */}
-    </div>    
-  );
-}
-
-export default App;
-
+    
         {/*}
         <Route path="/bienvenida" element={<Bienvenida></Bienvenida>} />
         <Route path="/contadores" element={<Contadores></Contadores>} />
