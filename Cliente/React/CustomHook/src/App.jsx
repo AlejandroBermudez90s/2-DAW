@@ -22,12 +22,13 @@ import Fotografia from './paginas/Fotografia';
 
 import ListaPost from './componentes/ListaPosts/ListaPost';
 import Loader from './componentes/Loader/Loader';
+import PaginaPost from './paginas/PaginaPost/PaginaPost';
 
 function App() {
 
   return (
     <div>
-      <ListaPost></ListaPost>
+      <PaginaPost></PaginaPost>
     </div>    
   );
 }

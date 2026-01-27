@@ -3,9 +3,7 @@ import Post from "../Post/Post"
 import useAllPosts from "../../hooks/Posts/useAllPosts"
 import Loader from "../Loader/Loader"
 
-const ListaPost = () => {
-
-    const posts = useAllPosts()
+const ListaPost = (props) => {
 
     function generarPost(post) {
 
@@ -18,7 +16,9 @@ const ListaPost = () => {
         <>
             <h1>Posts</h1>
             <ul>
-                {posts.buscando ? <Loader></Loader> : posts.lista.map(generarPost)}
+                {props.posts.buscando ? <Loader></Loader> 
+                                : props.posts.lista.map(generarPost)
+                }
             </ul>
         </>
     )
