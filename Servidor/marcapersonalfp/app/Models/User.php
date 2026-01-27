@@ -47,12 +47,13 @@ class User extends Authenticatable
         ];
     }
 
-<<<<<<< HEAD
-     public function curriculo(): HasOne
-=======
     public function curriculo()
->>>>>>> b787e46d1b9ad8bc91201eecd04ed6260afc6094
     {
         return $this->hasOne(Curriculo::class);
+    }
+
+    public function idiomas()
+    {
+        return $this->hasMany(UserIdioma::class);
     }
 }
