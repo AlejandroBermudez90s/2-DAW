@@ -24,16 +24,42 @@ import ListaPost from './componentes/ListaPosts/ListaPost';
 import Loader from './componentes/Loader/Loader';
 import PaginaPost from './paginas/PaginaPost/PaginaPost';
 
+import PaginaPostsPorUsuarios from './paginas/PaginaPostsPorUsuarios/PaginaPostsPorUsuarios';
+import MenuPosts from './componentes/MenuPosts/MenuPosts';
+
 function App() {
 
   return (
     <div>
-      <PaginaPost></PaginaPost>
+      <MenuPosts></MenuPosts>
+      <Routes>
+        <Route path="/" element={<Home></Home>} />
+        <Route path="/posts" element={<PaginaPost></PaginaPost>} />
+        <Route path="/usuarios" element={<PaginaPostsPorUsuarios></PaginaPostsPorUsuarios>} />
+      </Routes>
     </div>    
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/*
+      <PaginaPost></PaginaPost>
+      <PaginaPostsPorUsuarios></PaginaPostsPorUsuarios>
+      */}
 
       {/* <MenuCiudades></MenuCiudades> */}
       {/*

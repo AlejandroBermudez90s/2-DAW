@@ -12,11 +12,13 @@ const ListaPost = (props) => {
         )
     }
 
+console.log(props.posts)
+
     return (
         <>
             <h1>Posts</h1>
             <ul>
-                {props.posts.buscando ? <Loader></Loader> 
+                {props.posts.cargando ? <Loader></Loader> 
                                 : props.posts.lista.map(generarPost)
                 }
             </ul>
