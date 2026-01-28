@@ -1,106 +1,137 @@
-import sys, tty, termios
-import threading
-import time
+import sys, tty, termios, time, random, pickle, select
 
+# ================= CONFIG =================
+lines = 15
+columns = 50
+VELOCIDAD = 0.09
+USERNAME_MAX_LENGTH = 15
+SCORE_MAX_LENGTH = 10
 
+CURSOR_HIDE = "\033[?25l"
+CURSOR_SHOW = "\033[?25h"
+CLEAR_SCREEN = "\033c"
+S_R = "\033[0m"
+S_B = "\033[1m"
 
-# COLORS AND CURSOR
-CURSOR_HIDE="\033[?25l"                         # HIDE CURSOR
-CURSOR_SHOW="\033[?25h"                         # SHOW CURSOR
-CLEAR_SCREEN="\033c"                            # CLEAR SCREEN
-S_R="\033[0m"                                   # STYLE RESET
-S_D="\033[2m"                                   # STYLE DIM
-S_B="\033[1m"                                   # STYLE BOLD
-R_L="\033[2K"                                   # REMOVE LINE
-M_U="\033[A"                                    # MOVE UP 1 LINE
-C_G="\033[32m"                                  # COLOR GREEN
-C_LG="\033[92m"                                 # COLOR LIGHT GREEN
-C_R="\033[31m"                                  # COLOR RED
-C_Y="\033[33m"                                  # COLOR YELLOW
-C_LR="\033[91m"                                 # COLOR LIGHT RED
-C_B="\033[34m"                                  # COLOR BLUE
-C_M="\033[35m"                                  # COLOR MAGENTA
-C_C="\033[36m"                                  # COLOR CYAN
- 
-# CONFIG  
-lines = 15                                      # MAP SIZE LINES
-columns = 50                                    # MAP SIZE COLUMNS
- 
-# VARIABLES THREAD MODIFIED
-key_pressed = "R"                               # USER LAST KEY PRESSED
+C_G="\033[32m"
+C_R="\033[31m"
+C_M="\033[35m"
+C_GRAY="\033[37m"
 
+SNAKE_BODY = "█"
+initial_position = [(10,10),(10,9),(10,8),(10,7)]
 
 
 fd = sys.stdin.fileno()
 old_settings = termios.tcgetattr(fd)
-lock = threading.Lock()
-def start_keyboard():
-    """
-    Capture keystrokes in background using threads:
-        Q, P, UP, DOWN, LEFT, RIGHT: save key value in {key_pressed} variable
-        +, -: modify {speed} variable in 0.05 steeps
- 
-    GLOBAL VARIABLES MODIFIED
-      {key_pressed}
-    """
 
-    def read_keyboard():
-        global key_pressed
-        try:
-            key_read=""
-            tty.setcbreak(fd)
-            while key_read != "q":
-                ch1 = sys.stdin.read(1)
-                if ch1 == '\x1b':  # posible flecha
-                    ch2 = sys.stdin.read(1)
-                    ch3 = sys.stdin.read(1)
-                    k = ch1 + ch2 + ch3
-                    if k == '\x1b[A':
-                        key_read = "U"
-                    elif k == '\x1b[B':
-                        key_read = "D"
-                    elif k == '\x1b[C':
-                        key_read = "R"
-                    elif k == '\x1b[D':
-                        key_read = "L"
-                elif ch1 == 'q':
-                    key_read = "Q"
-                elif ch1 == 'p':
-                    key_read = "P"
-                elif ch1 == "+":
-                    key_read = "+"
-                elif ch1 == "-":
-                    key_read = "-" 
-                with lock:
-                    key_pressed = key_read                    
-        finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
- 
-    key_thread = threading.Thread(target=read_keyboard, daemon=True)
-    key_thread.start()
-    return key_thread
+def move_cursor(r,c):
+    print(f"\033[{r};{c}H", end="")
+
+def move_and_print(pos, txt):
+    move_cursor(pos[0], pos[1])
+    print(txt, end="", flush=True)
+
+
+def read_key():
+    if select.select([sys.stdin], [], [], 0)[0]:
+        ch = sys.stdin.read(1)
+        if ch == '\x1b':
+            ch += sys.stdin.read(2)
+            return {'\x1b[A':'U','\x1b[B':'D','\x1b[C':'R','\x1b[D':'L'}.get(ch)
+        if ch in 'qQ': return 'Q'
+        if ch in 'pP': return 'P'
+    return None
 
 
 def draw_map():
+    print(CLEAR_SCREEN, end="")
+    print(f"▄"*(columns+2))
+    print(f"█{' '*(columns)}█\n"*lines, end="")
+    print(f"▀"*(columns+2))
+    return {"U":1,"D":lines+2,"L":1,"R":columns+2}
 
-    print("██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗    ███████╗███╗   ██╗ █████╗ ██╗  ██╗███████╗    ")
-    print("██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║    ██╔════╝████╗  ██║██╔══██╗██║ ██╔╝██╔════╝  ")
-    print("██████╔╝ ╚████╔╝    ██║   ███████║██║   ██║██╔██╗ ██║    ███████╗██╔██╗ ██║███████║█████╔╝ █████╗      ")
-    print("██╔═══╝   ╚██╔╝     ██║   ██╔══██║██║   ██║██║╚██╗██║    ╚════██║██║╚██╗██║██╔══██║██╔═██╗ ██╔══╝      ")
-    print("██║        ██║      ██║   ██║  ██║╚██████╔╝██║ ╚████║    ███████║██║ ╚████║██║  ██║██║  ██╗███████╗     ")
-    print("╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝      ")
+def draw_snake(snake):
+    for p in snake:
+        move_and_print(p, f"{C_G}{SNAKE_BODY}{S_R}")
 
-def start_game():
+def move_snake(snake, direction):
+    tail = snake.pop()
+    r,c = snake[0]
+    if direction == 'U': r -= 1
+    if direction == 'D': r += 1
+    if direction == 'L': c -= 1
+    if direction == 'R': c += 1
+    new_head = (r,c)
+    snake.insert(0,new_head)
+    move_and_print(new_head, f"{C_G}{SNAKE_BODY}{S_R}")
+    move_and_print(tail, " ")
+    return tail
 
-    start_keyboard() 
-    draw_map()
+def collision(snake, limits):
+    r,c = snake[0]
+    return (
+        snake[0] in snake[1:] or
+        r <= limits['U'] or r >= limits['D'] or
+        c <= limits['L'] or c >= limits['R']
+    )
+
+def draw_fruit(snake, limits):
+    pos=[]
+    for r in range(limits['U']+1, limits['D']):
+        for c in range(limits['L']+1, limits['R']):
+            if (r,c) not in snake:
+                pos.append((r,c))
+    f=random.choice(pos)
+    move_and_print(f,"●")
+    return f
+
+def show_info(user, score):
+    move_cursor(lines+3,0)
+    print(f"🐍 SCORE: {score}     🤖 {user}", flush=True)
+
+# ================= MAIN =================
+def game():
+    tty.setcbreak(fd)
+    print(CURSOR_HIDE, end="")
+    user=""
+    while not user:
+        draw_map()
+        user=input("🤖 PLAYER NAME: ")
+        if len(user)>=USERNAME_MAX_LENGTH:
+            user=""
+
+    limits=draw_map()
+    snake=initial_position[:]
+    draw_snake(snake)
+    fruit=draw_fruit(snake,limits)
+    score=0
+    direction='R'
 
     while True:
-        action=key_pressed
-        print(action)
-        time.sleep(0.1)
+        key=read_key()
+        if key=='Q': break
+        if key in ['U','D','L','R']:
+            if not (key=='U' and direction=='D' or
+                    key=='D' and direction=='U' or
+                    key=='L' and direction=='R' or
+                    key=='R' and direction=='L'):
+                direction=key
 
-    end_game()
+        tail=move_snake(snake,direction)
 
-def end_game():
+        if snake[0]==fruit:
+            snake.append(tail)
+            score+=1
+            fruit=draw_fruit(snake,limits)
+
+        if collision(snake,limits):
+            break
+
+        show_info(user,score)
+        time.sleep(VELOCIDAD)
+
+    print(CURSOR_SHOW)
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+game()
