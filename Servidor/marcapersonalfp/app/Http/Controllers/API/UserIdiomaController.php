@@ -5,35 +5,37 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\IdiomaResource;
 use App\Models\Idioma;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class IdiomaController extends Controller
+class UserIdiomaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request, User $user)
     {
-        $query = Idioma::query();
+        $query = $user->idiomas();
 
-        if($query) {
-
-            $query->orWhere('english_name', 'like', '%' .$request->q . '%')
-                  ->orWhere('native_name', 'like', '%' .$request->q . '%');
+        if ($request) {
+            $query->where(function ($q) use ($request) {
+                $q->orWhere('english_name', 'like', '%' . $request->q . '%')
+                    ->orWhere('native_name', 'like', '%' . $request->q . '%');
+            });
         }
+
         return IdiomaResource::collection(
             $query->orderBy($request->sort ?? 'id', $request->order ?? 'asc')
-            ->paginate($request->per_page));
+                ->paginate($request->per_page)
+        );
     }
-
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         $idioma = json_decode($request->getContent(), true);
-
-        $idioma = Idioma::create($idioma);
+        $idioma = $user->idiomas()->create($idioma);
 
         return new IdiomaResource($idioma);
     }
@@ -41,7 +43,7 @@ class IdiomaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Idioma $idioma)
+    public function show(Idioma $idioma, User $user)
     {
         return new IdiomaResource($idioma);
     }
@@ -49,7 +51,7 @@ class IdiomaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Idioma $idioma)
+    public function update(Request $request, Idioma $idioma, User $user)
     {
         $idiomaData = json_decode($request->getContent(), true);
         $idioma->update($idiomaData);
@@ -60,7 +62,7 @@ class IdiomaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Idioma $idioma)
+    public function destroy(Idioma $idioma, User $user)
     {
         try {
             $idioma->delete();

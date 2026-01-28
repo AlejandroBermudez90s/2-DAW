@@ -16,7 +16,7 @@ class IdiomasTableSeeder extends Seeder
         DB::table('idiomas')->truncate();
 
         foreach (self::$idiomas as $idioma) {
-            
+
             DB::table('idiomas')->insert([
                 'alpha2' => $idioma['639-1'],
                 'alpha3t' => $idioma['639-2/T'],

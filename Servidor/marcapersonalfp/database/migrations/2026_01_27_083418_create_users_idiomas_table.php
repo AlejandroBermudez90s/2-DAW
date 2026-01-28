@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_idiomas', function (Blueprint $table) {
+        Schema::create('user_idiomas', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('idioma_id');
 
+            $table->unsignedBigInteger('idioma_id');
                 $table->foreign('idioma_id')->references('id')->on('idiomas')->onDelete('cascade');
+
             $table->string('certificado');
             $table->timestamps();
         });
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_idiomas');
+        Schema::dropIfExists('user_idiomas');
     }
 };

@@ -17,11 +17,11 @@ class UserIdioma extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function idioma()
     {
-        return $this->belongsTo(Idioma::class);
+        return $this->belongsToMany(Idioma::class);
     }
 }

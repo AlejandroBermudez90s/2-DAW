@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('curriculos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->unique();
+            // crea la clave ajena con users
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
