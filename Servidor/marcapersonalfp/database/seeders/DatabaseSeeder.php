@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Tabla catálogo inicializada con datos!');
         $this->call(FamiliasProfesionalesTableSeeder::class);
         $this->call(CiclosTableSeeder::class);
-        $this->call(IdiomasTableSeeder::class);
 
         Model::reguard();
         Schema::enableForeignKeyConstraints();
