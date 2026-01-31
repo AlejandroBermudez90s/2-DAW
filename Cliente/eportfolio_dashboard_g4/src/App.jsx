@@ -6,18 +6,18 @@ import Layout from './componentes/Layout/Layout.jsx'
 
 function App() {
 
-  const usuario = 'Alejandro'
-  const token = 'abc123xyz456'
-  const menu = 'Principal'
+	const usuario = 'Alejandro'
+	const token = 'abc123xyz456'
+	const menu = 'Principal'
 
-  return (
-    <TokenContext.Provider value={token}>
-        <Cabecera usuario={usuario}></Cabecera>
-        <UserContext.Provider value={usuario}>
-            <Layout menu={menu}></Layout>
-        </UserContext.Provider>
-    </TokenContext.Provider>
-  )
+	return (
+		<TokenContext.Provider value={token}>
+			<Cabecera usuario={usuario}></Cabecera>
+			<UserContext.Provider value={usuario}>
+				<Layout menu={menu}></Layout>
+			</UserContext.Provider>
+		</TokenContext.Provider>
+	)
 
 }
 
