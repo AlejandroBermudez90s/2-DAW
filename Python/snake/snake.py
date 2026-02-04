@@ -3,7 +3,7 @@ import sys, tty, termios, time, random, pickle, select
 # ================= CONFIG =================
 lines = 15
 columns = 50
-VELOCIDAD = 0.09
+VELOCIDAD = 0.1
 USERNAME_MAX_LENGTH = 15
 SCORE_MAX_LENGTH = 10
 
@@ -46,10 +46,17 @@ def read_key():
 
 def draw_map():
     print(CLEAR_SCREEN, end="")
+    print("""
+██████╗░██╗░░░██╗████████╗██╗░░██╗░█████╗░███╗░░██╗  ░██████╗███╗░░██╗░█████╗░██╗░░██╗███████╗
+██╔══██╗╚██╗░██╔╝╚══██╔══╝██║░░██║██╔══██╗████╗░██║  ██╔════╝████╗░██║██╔══██╗██║░██╔╝██╔════╝
+██████╔╝░╚████╔╝░░░░██║░░░███████║██║░░██║██╔██╗██║  ╚█████╗░██╔██╗██║███████║█████═╝░█████╗░░
+██╔═══╝░░░╚██╔╝░░░░░██║░░░██╔══██║██║░░██║██║╚████║  ░╚═══██╗██║╚████║██╔══██║██╔═██╗░██╔══╝░░
+██║░░░░░░░░██║░░░░░░██║░░░██║░░██║╚█████╔╝██║░╚███║  ██████╔╝██║░╚███║██║░░██║██║░╚██╗███████╗
+╚═╝░░░░░░░░╚═╝░░░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝""")
     print(f"▄"*(columns+2))
     print(f"█{' '*(columns)}█\n"*lines, end="")
     print(f"▀"*(columns+2))
-    return {"U":1,"D":lines+2,"L":1,"R":columns+2}
+    return {"U":8,"D":lines+9,"L":1,"R":columns+2}
 
 def draw_snake(snake):
     for p in snake:
@@ -87,17 +94,17 @@ def draw_fruit(snake, limits):
     return f
 
 def show_info(user, score):
-    move_cursor(lines+3,0)
-    print(f"🐍 SCORE: {score}     🤖 {user}", flush=True)
+    move_cursor(lines+10,0)
+    print(f"🐍 PUNTUACIÓN: {score}     🤖 JUGADOR: {user}", flush=True)
 
-# ================= MAIN =================
-def game():
+
+def start_game():
     tty.setcbreak(fd)
     print(CURSOR_HIDE, end="")
     user=""
     while not user:
         draw_map()
-        user=input("🤖 PLAYER NAME: ")
+        user=input("🤖 NOMBRE: ")
         if len(user)>=USERNAME_MAX_LENGTH:
             user=""
 
@@ -131,7 +138,8 @@ def game():
         show_info(user,score)
         time.sleep(VELOCIDAD)
 
+    move_cursor(lines+12,0)
     print(CURSOR_SHOW)
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
-game()
+start_game()
