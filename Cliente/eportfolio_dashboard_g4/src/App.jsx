@@ -11,12 +11,14 @@ function App() {
 	const menu = 'Principal'
 
 	return (
-		<TokenContext.Provider value={token}>
-			<Cabecera usuario={usuario}></Cabecera>
-			<UserContext.Provider value={usuario}>
-				<Layout menu={menu}></Layout>
-			</UserContext.Provider>
-		</TokenContext.Provider>
+		<div className='container-fluid vh-100 vw-100 d-flex flex-column p-0'>
+			<TokenContext.Provider value={token}>
+				<Cabecera usuario={usuario}></Cabecera>
+				<UserContext.Provider value={usuario}>
+					<Layout menu={menu}></Layout>
+				</UserContext.Provider>
+			</TokenContext.Provider>
+		</div>
 	)
 
 }

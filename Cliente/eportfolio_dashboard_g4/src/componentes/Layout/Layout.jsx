@@ -5,10 +5,10 @@ const Layout = (props) => {
 
     return (
         <div className='row'>
-            <div className='col-4'>
+            <div id="aside" className='col-4 p-3 h-100 border-end'>
                 <Roles></Roles>
             </div>
-            <div className='col-8'>
+            <div id="main" className='col-8 p-4 overflow-auto'>
                 <Dashboard menu={props.menu}></Dashboard>
             </div>
         </div>

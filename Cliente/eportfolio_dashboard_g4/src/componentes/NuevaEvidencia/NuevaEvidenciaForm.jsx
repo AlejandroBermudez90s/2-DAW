@@ -2,32 +2,34 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import "./Evidencias.css"
+import Box from '@mui/material/Box';
+
 
 const NuevaEvidenciaForm = (props) => {
 
-	function añadirEvidencia() {
+	function añadirEvidencia () {
 
 		return <></>
 	}
 
 
-	function borrarTareas() {
+	function borrarTareas () {
 		props.setListaTareas([])
 		setTareaSeleccionada("")
 	}
 
+	function validarURL () {
+		
+	}
+
 	return (
-		<div className='ancho'>
-			<h4>Formulario Tarea</h4>
-			<p>Tarea seleccionada: {props.tareaSeleccionada.id} - {props.tareaSeleccionada.observaciones}</p>
+		<Box component="form" sx={{mt:2}}>
 			<TextField 
 				id="outlined-basic" 
 				label="URL" 
 				variant="outlined" 
 				fullWidth
 			/>
-			<br />
-			<br />
 			<TextField
 				id="outlined-textarea"
 				label="Observaciones"
@@ -40,7 +42,7 @@ const NuevaEvidenciaForm = (props) => {
 				<Button variant="contained" onClick={añadirEvidencia}>Añadir evidencia</Button>
 				<Button variant="contained" onClick={borrarTareas}>Borrar tareas</Button>
 			</Stack>
-		</div>
+		</Box>
 	)
 }
 

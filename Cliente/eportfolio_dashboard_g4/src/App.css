@@ -3,14 +3,14 @@
   padding: 0;
 }
 
-header {
+#header {
   background-color: darkgrey;
   text-align: center;
   align-content: center;
   height: 10em;
 }
 
-aside{
+#aside{
   background-color: lightgrey;
   height: 100vh;
   text-align: center;
@@ -18,7 +18,7 @@ aside{
   padding: 0px;
 }
 
-main{
+#main{
   background-color: yellowgreen;
   height: 100vh;
   text-align: center;

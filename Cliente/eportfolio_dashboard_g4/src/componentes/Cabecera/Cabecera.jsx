@@ -6,8 +6,7 @@ function Cabecera(props) {
     const user = useContext(UserContext)
 
     return (
-        <div className='container-fluid'>
-            <div className='row'>
+            <div className='row' id="header">
                 <div className='col-12'>
                     <header>
                         <h1>HEADER</h1>
@@ -16,8 +15,6 @@ function Cabecera(props) {
                     </header>
                 </div>
             </div>
-        </div>
-
     )
 }
 

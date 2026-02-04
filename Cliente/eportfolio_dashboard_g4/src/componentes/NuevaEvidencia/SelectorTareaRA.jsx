@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -25,29 +25,23 @@ const SelectorTareaRA = (props) => {
     }
 
     return (
-        <div className="centro">
-            <h4>Selector Tarea</h4>
-            <Box sx={{ minWidth: 400 }}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Tarea</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={props.tareaSeleccionada}
-                        label="Tarea"
-                        onChange={handleChange}
-                    >
-                        {mostrarTareas()}
-                        {props.listaTareas.length === 0 ? <MenuItem value={-1}>No hay tareas</MenuItem>
-                                                        : props.listaTareas.map(props.verTareas)
-                        }
-                        
-                    </Select>
-                </FormControl>
-            </Box>
-
-            <p>Tarea seleccionada: {props.tareaSeleccionada} - {observaciones}</p>
-        </div>
+        <>
+            <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Tarea</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={props.tareaSeleccionada}
+                    label="Tarea"
+                    onChange={handleChange}
+                >
+                    {mostrarTareas()}
+                    {props.listaTareas.length === 0 ? <MenuItem value={-1}>No hay tareas</MenuItem>
+                        : props.listaTareas.map(props.verTareas)
+                    }
+                </Select>
+            </FormControl>
+        </>
     )
 }
 
