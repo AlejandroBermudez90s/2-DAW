@@ -1,14 +1,20 @@
-.izquierda {
-    float :left;
-    width: 50%;
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.derecha {
-    float :right;
+.item {
     width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
 }
 
-.medio{
-    float :right;
-    width: 50%;
+.fila2 {
+    width: 100%;
+}
+
+.alturaPost {
+    min-height: 100vh;
 }
