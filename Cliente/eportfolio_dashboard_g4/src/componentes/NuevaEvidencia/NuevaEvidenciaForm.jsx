@@ -1,48 +1,55 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import "./Evidencias.css"
-import Box from '@mui/material/Box';
-
+import { Form, useForm, Controller } from 'react-hook-form'
+import { useState, useContext } from 'react';
+import UserContext from '../Contexts/UserContext';
 
 const NuevaEvidenciaForm = (props) => {
 
-	function añadirEvidencia () {
+	const { control, handleSubmit } = useForm({defaultValues: {url : "", descripcion : ""}})
 
-		return <></>
+	const usuario = useContext(UserContext)
+
+	const [evidenciaInicial, setEvidenciaInicial] = useState({ 
+																											      tarea_id 					: props.tareaSeleccionada.id,
+ 																											      estudiante_id 		: usuario,
+																											      url								: "",
+																											      descripcion				: "",
+ 																											      estado_validacion	: "pendiente" 
+																										      })
+	
+	function añadirEvidencia(evidencia) {
+		const evidenciaFinal = { ...evidenciaInicial, ...evidencia }
+		setEvidenciaInicial(evidenciaFinal)
+		props.manejarEvidencia(evidenciaFinal)
 	}
 
-
-	function borrarTareas () {
-		props.setListaTareas([])
-		setTareaSeleccionada("")
-	}
-
-	function validarURL () {
-		
-	}
+	console.log("Evidencia final:", evidenciaInicial);
 
 	return (
-		<Box component="form" sx={{mt:2}}>
-			<TextField 
-				id="outlined-basic" 
-				label="URL" 
-				variant="outlined" 
-				fullWidth
-			/>
-			<TextField
-				id="outlined-textarea"
-				label="Observaciones"
-				placeholder="Observaciones"
-				multiline
-				fullWidth
-				margin="normal"
-			/>
-			<Stack direction="row" spacing={2}>
-				<Button variant="contained" onClick={añadirEvidencia}>Añadir evidencia</Button>
-				<Button variant="contained" onClick={borrarTareas}>Borrar tareas</Button>
-			</Stack>
-		</Box>
+		<Form control={control} onSubmit={handleSubmit(añadirEvidencia)}>
+
+      <Controller
+        name="url"
+        control={control}
+        rules={{ required: "La URL es obligatoria", pattern: { value: /^https?:\/\/.+/, message: "URL no válida" } }}
+        render={({ field, fieldState: { error } }) => (
+          <TextField {...field} label="URL" fullWidth error={!!error} helperText={error?.message} />
+        )}
+      />
+
+      <Controller
+        name="descripcion"
+        control={control}
+        rules={{ required: "La descripción es obligatoria" }}
+        render={({ field, fieldState: { error } }) => (
+          <TextField {...field} label="Observaciones" multiline fullWidth margin="normal" error={!!error} helperText={error?.message} />
+        )}
+      />
+
+      <Button variant="contained" type="submit">Añadir evidencia</Button>
+    </Form>
 	)
 }
 
