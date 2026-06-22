@@ -1,0 +1,21 @@
+#miCanvas { border: solid 1px #ccc; margin-left: 20px; background-color:yellow;}
+#configurador{border: solid 1px #ccc;
+            margin-left: 20px;
+		    width: 600px;
+			height:400 px;
+			background-color:lightgreen;}
+
+#titulo {text-align:center;
+         font-size:20px;
+		 font-weight: bold;
+		 margin:10px;}
+		 
+label { display:block;
+        margin: 0.5em 0 0 0;}
+		
+#izquierda {display:inline;
+            width: 44%;}
+#derecha {display:inline;
+          width: 44%;}
+		
+.pequeño {width: 50px;}
